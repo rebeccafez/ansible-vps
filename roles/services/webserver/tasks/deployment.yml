@@ -1,0 +1,21 @@
+---
+- name: Enroll deployment SSH keys
+  lineinfile:
+    name: "{{ webroot }}/.ssh/authorized_keys"
+    insertafter: "EOF"
+    line: "{{ deploy_ssh_pubkey }}"
+    create: true
+    owner: deploy
+    group: deploy
+    mode: "0600"
+    state: present
+
+- name: Create deployment user
+  user:
+    name: deploy
+    groups:
+      - caddy
+    append: true
+    state: present
+    home: "{{ webroot }}"
+    password: "*"

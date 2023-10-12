@@ -1,0 +1,13 @@
+[Interface]
+Address = {{ wg.server_ip }}/24
+ListenPort = {{ wg.listen_port }}
+PrivateKey = {{ wg.server_privkey }}
+
+PreUp = iptables -t nat -A POSTROUTING -j MASQUERADE -o enp1s0
+PreDown = iptables -t nat -D POSTROUTING -j MASQUERADE -o enp1s0
+
+{% for client in wg.clients %}
+[Peer]
+PublicKey = {{ client.pubkey }}
+AllowedIPs = {{ client.ip }}/32
+{% endfor %}

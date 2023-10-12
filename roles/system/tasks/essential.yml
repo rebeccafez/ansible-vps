@@ -1,0 +1,29 @@
+---
+- name: Bring packages to latest version
+  apt:
+    update_cache: yes
+    upgrade: yes
+    autoremove: yes
+
+- name: Reboot if needed
+  stat:
+    path: /var/run/reboot-required
+  notify: Reboot required
+
+- name: Install extra packages
+  package:
+    name: "{{ extra_packages }}"
+    state: present
+
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Set name in hosts file
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    insertafter: ^127\.0\.0\.1 *localhost
+    line: "127.0.0.1 {{ inventory_hostname }}"
+    owner: root
+    group: root
+    mode: '0644'

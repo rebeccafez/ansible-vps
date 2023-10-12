@@ -1,0 +1,2 @@
+---
+webroot: "/srv/http/{{ domain_name }}"

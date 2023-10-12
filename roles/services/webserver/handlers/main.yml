@@ -1,0 +1,5 @@
+---
+- name: Caddyfile changed
+  service:
+    name: caddy
+    state: restarted

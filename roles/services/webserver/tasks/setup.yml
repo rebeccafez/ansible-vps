@@ -1,0 +1,22 @@
+---
+- name: Install Caddy from packages
+  package:
+    name: caddy
+    state: present
+
+- name: Create server directories
+  file:
+    name: "{{ webroot }}"
+    state: directory
+    owner: caddy
+    group: caddy
+    mode: "0775"
+
+- name: Copy Caddyfile
+  template:
+    src: Caddyfile.j2
+    dest: /etc/caddy/Caddyfile
+    owner: root
+    group: root
+    mode: "664"
+  notify: Caddyfile changed

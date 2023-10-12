@@ -1,0 +1,15 @@
+www.{{ domain_name }} {
+  root * /srv/http/{{ domain_name }}/
+  file_server
+  encode gzip zstd
+  tls "{{ alerts_email }}" 
+}
+
+{{ domain_name }}:80 {
+  redir https://www.{{ domain_name }}{uri} permanent 
+}
+
+{{ domain_name }}:443 {
+  redir https://www.{{ domain_name }}{uri} permanent 
+  tls "{{ alerts_email }}" 
+}

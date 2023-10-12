@@ -1,0 +1,5 @@
+---
+
+extra_packages:
+  - rsync
+  - mosh
