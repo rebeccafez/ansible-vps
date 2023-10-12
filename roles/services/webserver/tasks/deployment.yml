@@ -1,4 +1,14 @@
 ---
+- name: Create deployment user
+  user:
+    name: deploy
+    groups:
+      - caddy
+    append: true
+    state: present
+    home: "{{ webroot }}"
+    password: "*"
+
 - name: Enroll deployment SSH keys
   lineinfile:
     name: "{{ webroot }}/.ssh/authorized_keys"
@@ -10,12 +20,3 @@
     mode: "0600"
     state: present
 
-- name: Create deployment user
-  user:
-    name: deploy
-    groups:
-      - caddy
-    append: true
-    state: present
-    home: "{{ webroot }}"
-    password: "*"

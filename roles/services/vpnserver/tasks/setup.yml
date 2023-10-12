@@ -33,3 +33,10 @@
     name: wg-quick@wg0
     enabled: true
     state: started
+
+- name: Allow wireguard to reach the outside world
+  ufw:
+    rule: "allow"
+    route: true
+    interface_in: wg0
+    interface_out: enp1s0

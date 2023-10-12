@@ -1,0 +1,22 @@
+---
+- name: Allow SSH connections
+  ufw:
+    rule: "allow"
+    port: 22
+
+- name: Allow HTTP connections
+  ufw:
+    rule: "allow"
+    port: 80
+
+- name: Allow HTTPS connections
+  ufw:
+    rule: "allow"
+    port: 443
+
+- name: Allow Wireguard connections
+  ufw:
+    rule: "allow"
+    port: 51820
+    proto: "udp"
+
