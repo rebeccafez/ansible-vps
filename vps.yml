@@ -3,5 +3,5 @@
   become: true
   roles:
     - role: system
-    - role: services/webserver
-    - role: services/vpnserver
+    - role: services/web
+    - role: services/vpn
