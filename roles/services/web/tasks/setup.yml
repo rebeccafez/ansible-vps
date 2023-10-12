@@ -8,9 +8,9 @@
   file:
     name: "{{ webroot }}"
     state: directory
-    owner: caddy
+    owner: deploy
     group: caddy
-    mode: "0775"
+    mode: "0755"
 
 - name: Copy Caddyfile
   template:

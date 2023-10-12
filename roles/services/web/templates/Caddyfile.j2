@@ -1,5 +1,5 @@
 www.{{ domain_name }} {
-  root * /srv/http/{{ domain_name }}/
+  root * {{ webroot }} 
   file_server
   encode gzip zstd
   tls "{{ alerts_email }}" 

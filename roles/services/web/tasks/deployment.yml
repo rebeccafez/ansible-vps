@@ -9,6 +9,14 @@
     home: "{{ webroot }}"
     password: "*"
 
+- name: Create deployment SSH directory
+  file:
+    name: "{{ webroot}}/.ssh/"
+    mode: 0700
+    owner: deploy
+    group: deploy
+    state: directory
+
 - name: Enroll deployment SSH keys
   lineinfile:
     name: "{{ webroot }}/.ssh/authorized_keys"
@@ -19,4 +27,3 @@
     group: deploy
     mode: "0600"
     state: present
-

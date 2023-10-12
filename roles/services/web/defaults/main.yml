@@ -1,2 +1,2 @@
 ---
-webroot: "/srv/http/{{ domain_name }}"
+webroot: "/srv/www/{{ domain_name }}"
