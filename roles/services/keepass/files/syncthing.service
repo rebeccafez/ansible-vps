@@ -1,0 +1,13 @@
+[Unit]
+Description=Syncthing
+After=network.target network-online.target
+Requires=network-online.target
+
+[Service]
+Type=simple
+User=strongbox
+Group=strongbox
+ExecStart=/usr/bin/syncthing --no-default-folder
+
+[Install]
+WantedBy=multi-user.target

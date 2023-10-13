@@ -1,4 +1,9 @@
 ---
+- name: Install ufw firewall
+  package:
+    name: ufw
+    state: present
+
 - name: Allow SSH connections
   ufw:
     rule: "allow"
@@ -20,3 +25,6 @@
     port: 51820
     proto: "udp"
 
+- name: Enable UFW
+  ufw:
+    state: enabled

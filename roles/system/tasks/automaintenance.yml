@@ -1,0 +1,14 @@
+---
+- name: Generate unattended-upgrades configuration
+  template:
+    src: 50unattended-upgrades.j2
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Enable unattended upgrade service
+  systemd:
+    name: unattended-upgrades
+    state: started
+    enabled: true

@@ -1,0 +1,33 @@
+---
+- name: Create strongbox user
+  user:
+    name: strongbox
+    home: "{{ strongbox_dir }}"
+    state: present
+
+- name: Create strongbox directories
+  file:
+    path: "{{ strongbox_dir }}/KeePassXC"
+    state: directory
+    mode: 0770
+    owner: strongbox
+    group: strongbox
+
+- name: Add main user to strongbox group
+  user:
+    name: "{{ username }}"
+    groups:
+      - strongbox
+    append: true
+    state: present
+
+- name: Enroll strongbox SSH keys
+  lineinfile:
+    dest: "{{ strongbox_dir }}/.ssh/authorized_keys"
+    insertafter: "EOF"
+    line: "{{ strongbox_ssh_pubkey }}"
+    create: true
+    owner: strongbox
+    group: strongbox
+    mode: "0600"
+    state: present

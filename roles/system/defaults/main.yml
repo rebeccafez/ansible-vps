@@ -1,0 +1,5 @@
+---
+maintenance:
+  auto_reboot: true
+  reboot_with_users: false
+  reboot_time: "02:00"

@@ -20,3 +20,9 @@
     group: root
     mode: "664"
   notify: Caddyfile changed
+
+- name: Ensure Caddy service is running
+  systemd:
+    name: caddy
+    enabled: true
+    state: started

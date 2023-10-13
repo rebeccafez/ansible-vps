@@ -5,3 +5,4 @@
     - role: system
     - role: services/web
     - role: services/vpn
+    - role: services/keepass

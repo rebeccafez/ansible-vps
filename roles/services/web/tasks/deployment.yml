@@ -11,7 +11,7 @@
 
 - name: Create deployment SSH directory
   file:
-    name: "{{ webroot}}/.ssh/"
+    name: "{{ webroot }}/.ssh/"
     mode: 0700
     owner: deploy
     group: deploy
@@ -19,11 +19,16 @@
 
 - name: Enroll deployment SSH keys
   lineinfile:
-    name: "{{ webroot }}/.ssh/authorized_keys"
+    dest: "{{ webroot }}/.ssh/authorized_keys"
     insertafter: "EOF"
     line: "{{ deploy_ssh_pubkey }}"
     create: true
     owner: deploy
     group: deploy
     mode: "0600"
+    state: present
+
+- name: Install rsync
+  package:
+    name: rsync
     state: present

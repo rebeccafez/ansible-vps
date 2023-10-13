@@ -1,0 +1,19 @@
+---
+- name: Install syncthing from packages
+  package:
+    name: syncthing
+    state: present
+
+- name: Copy syncthing unit file
+  copy:
+    src: syncthing.service
+    dest: /lib/systemd/system/syncthing.service
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Enable syncthing service
+  systemd:
+    name: syncthing
+    enabled: true
+    state: started

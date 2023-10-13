@@ -1,5 +1,8 @@
 ---
+username: rebecca
+
+admin_email: rebecca@rebeccafessenden.site
 
 extra_packages:
-  - rsync
   - mosh
+  - neovim
