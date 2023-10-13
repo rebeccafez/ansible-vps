@@ -1,4 +1,4 @@
 vault_pass.txt
 **/secret.yml
 .fact_cache/
-hosts/
+hosts
