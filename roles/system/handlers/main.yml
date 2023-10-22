@@ -2,3 +2,8 @@
 - name: Reboot required
   reboot:
     msg: "Reboot initiated by Ansible"
+
+- name: Reload SSH daemon
+  service:
+    name: sshd
+    state: restarted

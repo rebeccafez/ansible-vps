@@ -1,8 +1,21 @@
 ---
 username: rebecca
 
-admin_email: rebecca@rebeccafessenden.site
-
 extra_packages:
   - mosh
   - neovim
+
+domain_name: "rebeccafessenden.site"
+alerts_email: "rebecca@rebeccafessenden.site"
+
+deploy_ssh_pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIII33ddz2mgiu5nM2JYOhRisiQV4bp9/7uAWdcLriSrY rebecca@Rebeccas-MacBook-Air-2.local"
+strongbox_ssh_pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII8PBRZV7DhwHGoLEwzskdSd6mQTRSTmsmP+kt+2lIJ7 Strongbox access key"
+
+wg:
+  server_pubkey: "ESkLAQX2nayOuplUMAQM/AJg0CN/zinkUfmCSgimnis="
+  server_ip: "10.13.37.1"
+  clients:
+    - ip: "10.13.37.2"
+      pubkey: "iM6hNNMCrFzT4khdLTHdlB1f8YJjGWvSbPczSd/7KTI="
+    - ip: "10.13.37.3"
+      pubkey: "LWJGDss3y1IaUACwmvfAVg2ZNOMV3F1vi+19SXS8AW4="

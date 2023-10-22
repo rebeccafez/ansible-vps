@@ -5,3 +5,20 @@
     regexp: "^#PasswordAuthentication yes"
     line: "PasswordAuthentication no"
     state: present
+  notify: Restart SSH daemon
+
+- name: Install Fail2Ban
+  package:
+    name: fail2ban
+    state: present
+
+- name: Copy Fail2Ban config file
+  template:
+    src: jail.local.j2
+    dest: /etc/fail2ban/jail.local
+
+- name: Start fail2ban service
+  systemd:
+    name: fail2ban
+    enabled: true
+    state: started
