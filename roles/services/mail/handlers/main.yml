@@ -1,0 +1,4 @@
+---
+- name: Regenerate SASL password database
+  command:
+    cmd: "postmap /etc/postfix/sasl_passwd"

@@ -6,3 +6,4 @@
     - role: services/web
     - role: services/vpn
     - role: services/keepass
+    - role: services/mail

@@ -1,0 +1,32 @@
+---
+- name: Install Postfix
+  package:
+    name:
+      - postfix
+      - bsd-mailx
+    state: present
+
+- name: Set system mail name
+  template:
+    src: mailname.j2
+    dest: /etc/mailname
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure postfix
+  template:
+    src: main.cf.j2
+    dest: /etc/postfix/main.cf
+    owner: root
+    group: root
+    mode: 0640
+
+- name: Configure SMTP credentials
+  template:
+    src: sasl_passwd.j2
+    dest: /etc/postfix/sasl_passwd
+    owner: root
+    group: root
+    mode: 0640
+  notify: Regenerate SASL password database

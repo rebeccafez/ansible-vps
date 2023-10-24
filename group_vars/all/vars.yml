@@ -1,5 +1,6 @@
 ---
 username: rebecca
+hostname: osiris
 
 extra_packages:
   - mosh
@@ -19,3 +20,6 @@ wg:
       pubkey: "iM6hNNMCrFzT4khdLTHdlB1f8YJjGWvSbPczSd/7KTI="
     - ip: "10.13.37.3"
       pubkey: "LWJGDss3y1IaUACwmvfAVg2ZNOMV3F1vi+19SXS8AW4="
+
+smtp_relay: in-v3.mailjet.com:587
+smtp_user: eea97dd87804d799e2256e074b83a373

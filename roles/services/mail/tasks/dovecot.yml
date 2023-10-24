@@ -1,0 +1,12 @@
+---
+- name: Install dovecot
+  package:
+    name:
+      - dovecot-imapd
+      - dovecot-sieve
+      - spamassassin
+      - spamc
+    state: present
+
+- name: Configure dovecot
+    

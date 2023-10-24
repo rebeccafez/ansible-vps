@@ -1,0 +1,40 @@
+## Dovecot configuration file
+  
+# Protocols we want to be serving.
+protocols = imap pop3
+  
+ssl_cert = <{{ ssl_cert_path }}
+ssl_key = <{{ ssl_key_path }}
+ssl = required
+  
+mail_location = maildir:~/Maildir
+  
+service imap-login {
+  # disable non-ssl-port
+  inet_listener imap {
+    port = 0
+  }
+  inet_listener imaps {
+    port = 993
+  }
+}
+
+service pop3-login {
+  # disable non-ssl-port
+  inet_listener pop3 {
+    port = 0
+  }
+  inet_listener pop3s {
+    port = 995
+  }
+}
+
+# PAM-like authentication for OpenBSD.
+# <doc/wiki/PasswordDatabase.BSDAuth.txt>
+passdb {
+  driver = bsdauth
+}
+userdb {
+  # <doc/wiki/AuthDatabase.Passwd.txt>
+  driver = passwd
+}
