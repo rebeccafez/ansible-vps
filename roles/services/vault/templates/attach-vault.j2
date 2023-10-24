@@ -1,0 +1,3 @@
+sudo -v
+sudo cryptsetup open /dev/disk/by-uuid/{{ vault_uuid }} vault
+sudo mount /dev/mapper/vault /mnt/vault

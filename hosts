@@ -1,2 +1,0 @@
-[cloud]
-osiris ansible_host=osiris.rebeccafessenden.site ansible_user=rebecca ansible_connection=ssh ansible_ssh_private_keyfile=/Users/rebecca/.ssh/id_vultr_vps ansible_ssh_port=22

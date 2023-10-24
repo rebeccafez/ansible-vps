@@ -1,0 +1,10 @@
+---
+- name: Install vault attach script
+  template:
+    src: attach-vault.j2
+    dest: /usr/local/bin/attach-vault
+
+- name: Install vault detach script
+  template:
+    src: detach-vault.j2
+    dest: /usr/local/bin/detach-vault

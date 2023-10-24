@@ -7,3 +7,4 @@
     - role: services/vpn
     - role: services/keepass
     - role: services/mail
+    - role: services/vault
