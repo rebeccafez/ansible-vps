@@ -23,3 +23,5 @@ wg:
 
 smtp_relay: in-v3.mailjet.com:587
 smtp_user: eea97dd87804d799e2256e074b83a373
+
+vault_uuid: "cf2eab8e-2d1d-4b6e-adbb-0b54d2c263b2"
